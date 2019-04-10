@@ -1,0 +1,15 @@
+name: exec_from
+version: 1.0.0
+license: MIT
+authors:
+  - Stephen von Takach <steve@acaprojects.com>
+
+targets:
+  ameba:
+    main: src/exec_from.cr
+
+scripts:
+  postinstall: make bin
+
+executables:
+  - exec_from
