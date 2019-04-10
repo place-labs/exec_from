@@ -5,11 +5,11 @@ authors:
   - Stephen von Takach <steve@acaprojects.com>
 
 targets:
-  ameba:
+  exec_from:
     main: src/exec_from.cr
 
 scripts:
-  postinstall: make bin
+  postinstall: crystal build --release --no-debug -o ./bin/exec_from ./src/exec_from.cr
 
 executables:
   - exec_from
