@@ -9,7 +9,9 @@ targets:
     main: src/exec_from.cr
 
 scripts:
-  postinstall: crystal build --release --no-debug -o ./bin/exec_from ./src/exec_from.cr
+  postinstall:
+    - mkdir -p ../../bin
+    - crystal build --release --no-debug -o ../../bin/exec_from ./src/exec_from.cr
 
 executables:
   - exec_from
