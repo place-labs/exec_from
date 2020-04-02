@@ -9,4 +9,4 @@ status = Process.run(ARGV.shift, ARGV,
 )
 
 # https://unix.stackexchange.com/questions/394639/why-do-high-exit-codes-on-linux-shells-256-not-work-as-expected
-exit (status.exit_code % 256)
+exit (status.exit_code % 255)
