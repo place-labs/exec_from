@@ -1,15 +1,16 @@
 name: exec_from
-version: 1.0.7
+version: 1.1.0
 license: MIT
 authors:
-  - Stephen von Takach <steve@acaprojects.com>
+  - Stephen von Takach <steve@place.technology>
+  - Caspian Baska <caspianbaska@gmail.com>
 
 targets:
   exec_from:
-    main: src/exec_from.cr
+    main: src/app.cr
 
 scripts:
-  postinstall: mkdir -p ../../bin && crystal build --release --no-debug -o ../../bin/exec_from ./src/exec_from.cr
+  postinstall: mkdir -p ../../bin && crystal build --release --no-debug -o ../../bin/exec_from ./src/app.cr
 
 executables:
   - exec_from

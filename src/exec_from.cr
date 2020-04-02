@@ -1,11 +1,22 @@
-# Change directory
-Dir.cd(ARGV.shift)
+module ExecFrom
+  def self.exec_from(
+    directory : String,
+    command : String,
+    arguments : Enumerable(String) = [] of String,
+    input : IO | Process::Redirect = Process::Redirect::Close
+  ) : NamedTuple(output: IO, exit_code: Int32)
+    output = IO::Memory.new
+    result = Process.run(
+      command: "./bin/exec_from",
+      args: [directory, command].concat(arguments),
+      input: Process::Redirect::Close,
+      output: output,
+      error: output,
+    )
 
-# Execute process
-status = Process.run(ARGV.shift, ARGV,
-  input: Process::Redirect::Inherit,
-  output: Process::Redirect::Inherit,
-  error: Process::Redirect::Inherit
-)
-
-exit status.exit_code
+    {
+      output:    output,
+      exit_code: result.exit_code,
+    }
+  end
+end
