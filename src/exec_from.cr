@@ -8,5 +8,4 @@ status = Process.run(ARGV.shift, ARGV,
   error: Process::Redirect::Inherit
 )
 
-# https://unix.stackexchange.com/questions/394639/why-do-high-exit-codes-on-linux-shells-256-not-work-as-expected
-exit (status.exit_code % 255)
+exit status.exit_code
