@@ -1,5 +1,5 @@
 name: exec_from
-version: 1.1.1
+version: 1.1.2
 license: MIT
 authors:
   - Stephen von Takach <steve@place.technology>
@@ -10,7 +10,7 @@ targets:
     main: src/app.cr
 
 scripts:
-  postinstall: mkdir -p ../../bin && crystal build --release --no-debug -o ../../bin/exec_from ./src/app.cr
+  postinstall: make bin && make run_file
 
 executables:
   - exec_from
