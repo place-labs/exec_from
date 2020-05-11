@@ -15,6 +15,6 @@ bin: build
 	mkdir -p $(SHARD_BIN)
 	cp ./bin/exec_from $(SHARD_BIN)
 run_file:
-	cp -n ./bin/exec_from.cr $(SHARD_BIN) || true
+	cp -n ./bin/exec_from $(SHARD_BIN) || true
 test: build
 	$(CRYSTAL_BIN) spec
