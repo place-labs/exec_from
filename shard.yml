@@ -1,9 +1,14 @@
 name: exec_from
-version: 1.2.0
+version: 1.2.1
+crystal: ">= 0.35"
 license: MIT
+
 authors:
-  - Stephen von Takach <steve@place.technology>
-  - Caspian Baska <caspian@place.technology>
+  - Stephen von Takach <steve@place.tech>
+  - Caspian Baska <caspian@place.tech>
+
+executables:
+  - exec_from
 
 targets:
   exec_from:
@@ -11,6 +16,3 @@ targets:
 
 scripts:
   postinstall: make bin && make run_file
-
-executables:
-  - exec_from
