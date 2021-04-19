@@ -5,6 +5,7 @@ module ExecFrom
     arguments : Enumerable(String) = [] of String,
     environment : Process::Env = nil,
     clear_environment : Bool = false,
+    capture_stderr : Bool = true,
     input : IO | Process::Redirect = Process::Redirect::Close
   ) : NamedTuple(output: IO, exit_code: Int32)
     output = IO::Memory.new
@@ -15,7 +16,7 @@ module ExecFrom
       env: environment,
       clear_env: clear_environment,
       output: output,
-      error: output,
+      error: capture_stderr ? output : Process::Redirect::Close,
     )
 
     {
