@@ -1,11 +1,5 @@
 module ExecFrom
-  struct Result
-    getter status : Process::Status
-    getter output : IO
-
-    def initialize(@status, @output)
-    end
-  end
+  record Result, status : Process::Status, output : IO
 
   def self.exec_from(
     directory : String,
