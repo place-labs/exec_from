@@ -18,9 +18,9 @@ module ExecFrom
     environment : Process::Env = nil,
     clear_environment : Bool = false,
     capture_stderr : Bool = true,
-    input : IO | Process::Redirect = Process::Redirect::Close
+    input : IO | Process::Redirect = Process::Redirect::Close,
+    output : IO = IO::Memory.new
   ) : Result
-    output = IO::Memory.new
     status = Process.run(
       command: "./bin/exec_from",
       args: [directory, command].concat(arguments),
