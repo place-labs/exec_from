@@ -1,9 +1,5 @@
-require "json"
-
 module ExecFrom
   struct Result
-    include JSON::Serializable
-
     getter status : Process::Status
     getter output : IO
 
